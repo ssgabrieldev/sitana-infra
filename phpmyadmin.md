@@ -19,7 +19,8 @@ $ vim /srv/phpmyadmin/config.inc.php
 >- key
 >- phpmyadmin-user
 >- phpmyadmin-password
-Change or add next lines
+
+Change or add next lines:
 ```php
 $cfg['blowfish_secret'] = '<key>';
 $cfg['TempDir'] = '/var/lib/phpmyadmin/tmp';
