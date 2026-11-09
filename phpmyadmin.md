@@ -31,6 +31,7 @@ $cfg['Servers'][$i]['auth_type'] = 'cookie';
 $cfg['Servers'][$i]['host'] = 'localhost';
 $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['AllowNoPassword'] = false;
+$cfg['Servers'][$i]['AllowRoot'] = false;
 
 $cfg['Servers'][$i]['controluser'] = '<phpmyadmin-user>';
 $cfg['Servers'][$i]['controlpass'] = '<phpmyadmin-password>';
