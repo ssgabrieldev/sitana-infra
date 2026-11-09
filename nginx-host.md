@@ -4,10 +4,12 @@
 >- container
 >- domain
 ```bash
-$ vim /etc/nginx/sites-available/<domain> # file:1
-$ ln -s /etc/nginx/sites-available/<domain> /etc/nginx/sites-enabled/<container>
+$ vim /etc/nginx/sites-available/<domain>
+$ ln -s /etc/nginx/sites-available/<domain> /etc/nginx/sites-enabled/<domain>
 $ nginx -s reload
 $ certbot certonly --webroot -w /var/www/html -d <domain> --preferred-challenges http
+$ vim /etc/nginx/sites-available/<domain>
+$ nginx -s reload
 
 # ProFTPD
 $ lxc exec <container> -- mkdir -p /root/keys/<domain>
@@ -19,12 +21,11 @@ $ lxc exec adv-ao-prod -- mv /root/keys/<domain>/privkey1.pem /root/keys/<domain
 
 # Files
 
-## 1: /etc/nginx/sites-available/<container>
+## /etc/nginx/sites-available/<domain>
 >Variables:
 >- domain
 >- container-ip
 ```
-# php
 server {
     listen 80;
     listen [::]:80;
@@ -56,11 +57,10 @@ server {
         proxy_busy_buffers_size    256k;
     }
 
-    # phpMyAdmin
+    # phpmyadmin
     location = /phpmyadmin {
         return 301 /phpmyadmin/;
     }
-
     location ^~ /phpmyadmin/ {
         proxy_pass http://<container-ip>:80/;
         proxy_set_header Host phpmyadmin;

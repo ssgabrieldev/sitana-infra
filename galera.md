@@ -1,6 +1,6 @@
 # Commands
 ```bash
-$ vim /etc/mysql/conf.d/galera.cnf # file:1
+$ vim /etc/mysql/conf.d/galera.cnf
 $ service mariadb stop
 
 # if primary node
@@ -13,11 +13,11 @@ $ service mariadb start
 
 # Files
 
-## 1: /etc/mysql/conf.d/galera.cnf
+## /etc/mysql/conf.d/galera.cnf
 >Variables:
->- primary_server_ip
->- current_server_ip
->- other_server_ip
+>- primary-server-ip
+>- current-server-ip
+>- other-server-ip
 ```
 [mysqld]
 binlog_format=ROW
@@ -31,14 +31,14 @@ wsrep_provider=/usr/lib/galera/libgalera_smm.so
 
 # Galera Cluster Configuration
 wsrep_cluster_name="adv-angola-cluster"
-wsrep_cluster_address="gcomm://<primary_server_ip>:11567,<other_server_ip>:11567"
-wsrep_sst_receive_address=<current_server_ip>:11444
+wsrep_cluster_address="gcomm://<primary-server-ip>:11567,<other-server-ip>:11567"
+wsrep_sst_receive_address=<current-server-ip>:11444
 
 # Galera Synchronization Configuration
 wsrep_sst_method=rsync
 
 # Galera Node Configuration
-wsrep_node_address="<current_server_ip>"
+wsrep_node_address="<current-server-ip>"
 wsrep_node_name="adv-angola-prod"
-wsrep_provider_options="pc.recovery=TRUE;base_port=11567;ist.recv_addr=<current_server_ip>:11568;ist.recv_bind=0.0.0.0"
+wsrep_provider_options="pc.recovery=TRUE;base_port=11567;ist.recv_addr=<current-server-ip>:11568;ist.recv_bind=0.0.0.0"
 ```

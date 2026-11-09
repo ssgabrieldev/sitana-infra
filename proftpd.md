@@ -11,10 +11,10 @@ $ service proftpd restart
 # garant access to nginx
 $ chmod 755 /srv/ftp
 
-$ vim /etc/proftpd/ftpd.group # file:1
-$ vim /etc/proftpd/proftpd.conf  # file:2
-$ vim /etc/proftpd/tls.conf # file:3
-$ vim /etc/proftpd/modules.conf # file:4
+$ vim /etc/proftpd/ftpd.group
+$ vim /etc/proftpd/proftpd.conf
+$ vim /etc/proftpd/tls.conf
+$ vim /etc/proftpd/modules.conf
 $ mkdir -p /srv/ftp/<folder>
 $ chown -R 60000:nogroup /srv/ftp/<folder>
 $ ftpasswd --passwd --file=/etc/proftpd/ftpd.passwd --name=<user> --uid=60000 --gid=65534 --home=/srv/ftp/<folder> --shell=/bin/false
@@ -23,12 +23,12 @@ $ service proftpd restart
 
 # Files
 
-## 1: /etc/proftpd/ftpd.group
+## /etc/proftpd/ftpd.group
 ```
 nogroup:x:65534:
 ```
 
-## 2: /etc/proftpd/proftpd.conf
+## /etc/proftpd/proftpd.conf
 Change or add next lines:
 
 >Variables:
@@ -48,7 +48,7 @@ AuthGroupFile /etc/proftpd/ftpd.group
 
 Include /etc/proftpd/tls.conf
 ```
-## 3: /etc/proftpd/tls.conf
+## /etc/proftpd/tls.conf
 Change or add next lines:
 >Variables
 >- domain:
@@ -69,7 +69,7 @@ TLSVerifyClient                         off
 TLSRequired                             on
 ```
 
-## 4: /etc/proftpd/modules.conf
+## /etc/proftpd/modules.conf
 Change or add next lines:
 ```
 LoadModule mod_tls.c
