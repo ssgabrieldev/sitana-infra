@@ -20,7 +20,7 @@ $ vim /srv/phpmyadmin/config.inc.php
 >- phpmyadmin-user
 >- phpmyadmin-password
 Change or add next lines
-```
+```php
 $cfg['blowfish_secret'] = '<key>';
 $cfg['TempDir'] = '/var/lib/phpmyadmin/tmp';
 $cfg['CookiePath'] = '/phpmyadmin/';
