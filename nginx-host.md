@@ -25,7 +25,7 @@ $ lxc exec adv-ao-prod -- mv /root/keys/<domain>/privkey1.pem /root/keys/<domain
 >Variables:
 >- domain
 >- container-ip
-```cnf
+```nginx
 server {
     listen 80;
     listen [::]:80;

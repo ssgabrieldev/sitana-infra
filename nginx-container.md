@@ -38,9 +38,9 @@ $ nginx -s reload
 # Files
 
 ## /etc/nginx/sites-available/hosting
-```
+```nginx
 include /srv/webhosts/*.conf;
-```
+```nginx
 
 ## /etc/nginx/sites-available/phpmyadmin
 ```
@@ -63,7 +63,7 @@ server {
 ```
 
 ## /etc/nginx/php_params
-```
+```nginx
 fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
 
 fastcgi_param   QUERY_STRING            $query_string;
@@ -96,12 +96,12 @@ fastcgi_param   REDIRECT_STATUS         200;
 ```
 
 ## /etc/nginx/snippets/server.conf
-```
+```nginx
 #add_header X-Frame-Options "SAMEORIGIN";
 ```
 
 ## /etc/nginx/php_hosting.conf
-```
+```nginx
 location ~ /\.(?!well-known) {
     deny all;
     access_log off;
@@ -148,7 +148,7 @@ location ~ \.php$ {
 >Variables:
 >- domain
 >- project-folder
-```
+```nginx
 server {
     listen 80;
     listen [::]:80;
