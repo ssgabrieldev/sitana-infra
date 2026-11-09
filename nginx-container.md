@@ -29,8 +29,8 @@ $ vim /etc/nginx/php_hosting.conf
 $ vim /srv/webhosts/<domain>.conf
 
 # if phpmyadmin
-vim /etc/nginx/sites-available/phpmyadmin
-ln -s /etc/nginx/sites-available/phpmyadmin /etc/nginx/sites-enabled/phpmyadmin
+$ vim /etc/nginx/sites-available/phpmyadmin
+$ ln -s /etc/nginx/sites-available/phpmyadmin /etc/nginx/sites-enabled/phpmyadmin
 
 $ nginx -s reload
 ```
@@ -40,10 +40,10 @@ $ nginx -s reload
 ## /etc/nginx/sites-available/hosting
 ```nginx
 include /srv/webhosts/*.conf;
-```nginx
+```
 
 ## /etc/nginx/sites-available/phpmyadmin
-```
+```nginx
 server {
     listen 80;
     listen [::]:80;
