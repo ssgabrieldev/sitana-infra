@@ -8,7 +8,7 @@ $ mkdir -p /var/lib/phpmyadmin/tmp
 $ chown -R www-data:www-data /var/lib/phpmyadmin
 $ chmod 700 /var/lib/phpmyadmin/tmp
 $ cp /srv/phpmyadmin/config.sample.inc.php /srv/phpmyadmin/config.inc.php
-$ openssl rand -hex 16 # Irar gerar a key   
+$ openssl rand -hex 16 # generate blowfish_secret   
 $ vim /srv/phpmyadmin/config.inc.php
 ```
 
